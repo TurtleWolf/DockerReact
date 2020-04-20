@@ -1,0 +1,29 @@
+version: '2.4'
+
+services:
+  # nginx:
+  #   image: turtlewolfe/nginx
+  #   build: ./nginx
+  #   environment:
+  #     NODE_ENV: developement
+  #   ports:
+  #     - 80
+  #     - 443
+  #     # - 8080
+  # node:
+  #   image: turtlewolfe/node_api
+  #   build: ./node
+  #   environment:
+  #     NODE_ENV: developement
+  #   ports:
+  #     - 3000
+  client:
+    image: turtlewolfe/docker_react
+    build: ./react_docker
+    environment:
+      NODE_ENV: developement
+    ports:
+      - 3000
+    # volumes:
+    #   - '/opt/this_app/node_modules'
+    #   - '.:/opt/this_app'

@@ -1,0 +1,13 @@
+version: '2.4'
+
+services:
+  client:
+    image: turtlewolfe/docker_react:wth
+    build: .
+    environment:
+      NODE_ENV: developement
+    ports:
+      - 3000
+    # volumes:
+    #   - '/opt/this_app/node_modules'
+    #   - '.:/opt/this_app'

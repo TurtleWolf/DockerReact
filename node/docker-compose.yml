@@ -1,0 +1,10 @@
+version: "2.4"
+
+services:
+  node:
+    image: turtlewolfe/node_api
+    build: .
+    environment:
+      NODE_ENV: developement
+    ports:
+      - 3000
