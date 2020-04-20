@@ -5,22 +5,22 @@
 then modified according to the first few chapters of the React Cook Book
 
 [![React Cook Book cover](https://raw.githubusercontent.com/TurtleWolf/react_scaffolding/master/ReactCookBook.png 'React Cook Book By Carlos Santana Roldán August 2018')](https://subscription.packtpub.com/book/web-development/9781783980727 'By Carlos Santana Roldán August 2018c')
-[![React Tooling cover](./Images/ReactTooling.png 'React 16 Tooling covers the most important tools, utilities, and libraries that every React developer needs to know — in detail. By Adam Boduch, April 2018')](https://subscription.packtpub.com/book/web_development/9781788835015 'By Carlos Santana Roldán August 2018c')
+[![React Tooling cover](/ReferenceNotes/Images/ReactTooling.png 'React 16 Tooling covers the most important tools, utilities, and libraries that every React developer needs to know — in detail. By Adam Boduch, April 2018')](https://subscription.packtpub.com/book/web_development/9781788835015 'By Carlos Santana Roldán August 2018c')
 
-[![Docker Swarm](./Images/Docker_Swarm.png 'Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps ')](https://www.udemy.com/course/docker-mastery 'By Carlos Santana Roldán August 2018c')
-[![Docker Node](./Images/DockerNode.png 'Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert ')](https://www.udemy.com/course/docker-mastery-for-nodejs 'By Carlos Santana Roldán August 2018c')
+[![Docker Swarm](/ReferenceNotes//Images/Docker_Swarm.png 'Build, test, deploy containers with the best mega-course on Docker, Kubernetes, Compose, Swarm and Registry using DevOps ')](https://www.udemy.com/course/docker-mastery 'By Carlos Santana Roldán August 2018c')
+[![Docker Node](/ReferenceNotes//Images/DockerNode.png 'Build, test, deploy Node for Docker, Kubernetes, Swarm, and ARM with the latest DevOps practices from a container expert ')](https://www.udemy.com/course/docker-mastery-for-nodejs 'By Carlos Santana Roldán August 2018c')
 
 ## [Running React and Node.js in one shot with Docker! ](https://dev.to/numtostr/running-react-and-node-js-in-one-shot-with-docker-3o09 'In this post looking at the docker way of running React and Node.js. This is a kind of advance development setup and I hope you already installed and know the basics of docker and docker-compose. If you want to know more about docker head over to docker.com')
 
 & this Medium article Creating a chat web app using Express.js, React.js & Socket.i0
-[![Creating a chat web app using Express.js, React.js & Socket.io](./Images/antonio-article.png 'Creating a chat web app using Express.js, React.js & Socket.i')](https://medium.com/signature-networks/creating-a-chat-web-app-using-express-js-react-js-socket-io-1b01100a8ea5 'Antonio Erdeljac')
+[![Creating a chat web app using Express.js, React.js & Socket.io](/ReferenceNotes/Images/antonio-article.png 'Creating a chat web app using Express.js, React.js & Socket.i')](https://medium.com/signature-networks/creating-a-chat-web-app-using-express-js-react-js-socket-io-1b01100a8ea5 'Antonio Erdeljac')
 
 & maybe this video  
-[![Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js](./Images/mastery-video.png 'Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js')](https://youtu.be/ZwFA3YMfkoc ' JavaScript Mastery')
+[![Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js](/ReferenceNotes/Images/mastery-video.png 'Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js')](https://youtu.be/ZwFA3YMfkoc ' JavaScript Mastery')
 
 ## [ChatSocketIO Draggable Dice DockerFile React AWS](http://ec2-52-87-220-90.compute-1.amazonaws.com/ 'Chattain Ship & Crew')
 
-[![Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js](./Images/mastery-video.png 'Chattain Ship & Crew')](http://ec2-52-87-220-90.compute-1.amazonaws.com ' TurtleWolfe.com')
+[![Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js](/ReferenceNotes/Images/mastery-video.png 'Chattain Ship & Crew')](http://ec2-52-87-220-90.compute-1.amazonaws.com ' TurtleWolfe.com')
 
 ## Available Scripts
 
