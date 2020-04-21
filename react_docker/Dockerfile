@@ -19,7 +19,11 @@ EXPOSE 3000
 COPY .bashrc /home/node
 WORKDIR /opt
 # COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN apt-get update && mkdir this_app && chown -R node:node . && apt-get install curl -y && npm config list
+RUN apt-get update \
+    && mkdir this_app \
+    && chown -R node:node . \
+    && apt-get install curl -y \
+    && npm config list
 # node comes with a default user
 # USER node
 # we use npm ci here so only the package-lock.json file is used
