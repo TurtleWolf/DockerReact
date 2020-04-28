@@ -69,7 +69,7 @@ RUN npm i --only=development \
 
 # 24. Patch create-react-app bug preventing self-signed certificate usage
 # https://github.com/facebook/create-react-app/issues/8075
-COPY patch.js /client/node_modules/react-dev-utils/webpackHotDevClient.js
+# COPY patch.js /client/node_modules/react-dev-utils/webpackHotDevClient.js
 
 # 24. Print npm configuration for debugging purposes
 RUN npm config list
@@ -155,12 +155,18 @@ RUN trivy nginx:1.17-alpine && \
 ####################################################################
 ########                  PRODUCTION STAGE                   #######
 ####################################################################
+# ## Stage 6 (default, production)
+# # this will run by default if you don't include a target
+# # it has prod-only dependencies
+# # In BuildKit, this is skipped for dev and test stages
+
 # 22. Extend the nginx apline image and create a new stage named prod
 FROM nginx:1.17-alpine as prod
 
 # 23. Copy only the files we want from a few stages into the prod stage
 COPY --from=trivy result secure
 COPY --from=build-stage /client/this_app/build /usr/share/nginx/html
+# COPY .bashrc /home/node
 
 # 24. Copy non-root user nginx configuration
 # https://hub.docker.com/_/nginx
@@ -172,14 +178,3 @@ EXPOSE 80
 # 26. Define how Docker should test the container to check that it is still working
 # HEALTHCHECK CMD [ "wget", "-q", "0.0.0.0:80" ]
 CMD ["nginx", "-g", "daemon off;"]
-
-# ## Stage 6 (default, production)
-# # this will run by default if you don't include a target
-# # it has prod-only dependencies
-# # In BuildKit, this is skipped for dev and test stages
-# FROM source as prod
-# ENV NODE_ENV=development
-# ENV PATH=/opt/this_app/node_modules/.bin:$PATH
-# USER node
-# WORKDIR /opt/this_app
-# CMD ["yarn", "start"]

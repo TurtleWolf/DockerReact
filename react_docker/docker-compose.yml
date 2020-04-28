@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   client:
-    image: turtlewolfe/docker_react:wth
+    image: turtlewolfe/docker_react:nginxproduction
     build:
       context: .
       # target: dev
@@ -18,12 +18,15 @@ services:
     # - /client/app/node_modules
     # networks:
     #   - traefik-public
-    # labels:
-    # - "traefik.enable=true"
-    # - "traefik.http.routers.client.tls=true"
-    # - "traefik.http.routers.client.rule=Host(`client.local`)"
-    # - "traefik.http.routers.client.entrypoints=websecure"
-    # - "traefik.http.services.client.loadbalancer.server.port=3000"
+    labels:
+      - org.opencontainers.image.authors=TurtleWolfe.com
+      # - org.opencontainers.image.created=$CREATED_DATE
+      # - org.opencontainers.image.revision=$SOURCE_COMMIT
+      - org.opencontainers.image.title="DockerReact"
+      - org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/DockerReact
+      - org.opencontainers.image.source=https://github.com/TurtleWolf/DockerReact
+      - org.opencontainers.image.licenses=MIT
+      # - com.TurtleWolfe.nodeversion=$NODE_VERSION
     tty: true
     # stdin_open: true
     # command: dlv debug --accept-multiclient --continue --headless --listen=:2345 --api-version=2 --log ./cmd/api/
