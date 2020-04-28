@@ -3,15 +3,27 @@ version: "2.4"
 services:
   client:
     image: turtlewolfe/docker_react:wth
-    build: .
+    build:
+      context: .
+      # target: dev
+    container_name: client
     environment:
-      NODE_ENV: developement
+      NODE_ENV: production
     ports:
-      - 3000:3000
+      - "80:80"
     # volumes:
-    #   - '/opt/this_app/node_modules'
-    #   - '.:/opt/this_app'
+    # - .:/client/app
+    # - ./app/node_modules
+    # - ./client:/client/app
+    # - /client/app/node_modules
+    # networks:
+    #   - traefik-public
     # labels:
+    # - "traefik.enable=true"
+    # - "traefik.http.routers.client.tls=true"
+    # - "traefik.http.routers.client.rule=Host(`client.local`)"
+    # - "traefik.http.routers.client.entrypoints=websecure"
+    # - "traefik.http.services.client.loadbalancer.server.port=3000"
     tty: true
     # stdin_open: true
     # command: dlv debug --accept-multiclient --continue --headless --listen=:2345 --api-version=2 --log ./cmd/api/

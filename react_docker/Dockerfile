@@ -1,6 +1,11 @@
 ## Stage 1 (production base)
-# This gets our prod dependencies installed and out of the way
+
+# 1. Use the node apline image as the base stage of a multi-stage routine
+# FROM node:13.7.0-alpine as base
 FROM node:12.16.1-stretch-slim as base
+# This gets our prod dependencies installed and out of the way
+
+# 7. Provide meta data about the port the container must expose
 # set this with shell variables at build-time.
 # If they aren't set, then not-set will be default.
 ARG CREATED_DATE=April2020
@@ -14,11 +19,20 @@ LABEL org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/DockerReac
 LABEL org.opencontainers.image.source=https://github.com/TurtleWolf/DockerReact
 LABEL org.opencontainers.image.licenses=MIT
 LABEL com.TurtleWolfe.nodeversion=$NODE_VERSION
-ENV NODE_ENV=production
 EXPOSE 3000
 COPY .bashrc /home/node
-WORKDIR /opt
+
+# 2. Set the working directory to /client
+WORKDIR /client
+
+# # 3. Copy both package.json and package-lock.json into /client in the image's filesystem
+# COPY package*.json ./
 # COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+
+# # 4. Install only the production node_modules and clean up the cache
+# RUN npm ci \
+#     && npm cache clean --force
+
 RUN apt-get update \
     && mkdir this_app \
     && chown -R node:node . \
@@ -31,31 +45,64 @@ RUN npm config list \
     # && npm ci \
     && npx create-react-app this_app \
     && npm cache clean --force
-WORKDIR /opt/this_app
-# COPY . .
-# ENTRYPOINT [ "/sbin/tini", "--"]
-CMD ["npm", "start"]
+WORKDIR /client/this_app
 
 ## Stage 2 (development)
 # we don't COPY in this stage because for dev you'll bind-mount anyway
 # this saves time when building locally for dev via docker-compose
+# 5. Extend the base stage and create a new stage named dev
 FROM base as dev
-ENV NODE_ENV development
-ENV PATH=/opt/this_app/node_modules/.bin:$PATH
-WORKDIR /opt/this_app
-USER node
-RUN npm install --only=development --silent
-WORKDIR /opt/this_app
-CMD ["npm", "start", "--inspect=0.0.0.0:9229"]
+
+# 6. Set the NODE_ENV and PATH Environment variables
+ENV NODE_ENV=development
+ENV PATH /client/node_modules/.bin:$PATH
+# ENV PATH /client/this_app/node_modules/.bin:$PATH
+
+
+# 8. Create a new /app directory in /client
+# RUN mkdir /client/this_app
+
+# 9. Install development dependencies
+# RUN npm install --only=development --silent
+RUN npm i --only=development \
+    && npm cache clean --force
+
+# 24. Patch create-react-app bug preventing self-signed certificate usage
+# https://github.com/facebook/create-react-app/issues/8075
+COPY patch.js /client/node_modules/react-dev-utils/webpackHotDevClient.js
+
+# 24. Print npm configuration for debugging purposes
+RUN npm config list
+
+# 12. Set the working directory to /client/app
+WORKDIR /client/this_app
+
+# ENTRYPOINT [ "/sbin/tini", "--"]
+# 13. Provide the default command for the development container
+CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start", "--inspect=0.0.0.0:9229"]
+
 
 ## Stage 3 (copy in source)
 # This gets our source code into builder for use in next two stages
 # It gets its own stage so we don't have to copy twice
 # this stage starts from the first one and skips the last two
 FROM base as source
-WORKDIR /opt/this_app
+WORKDIR /client/this_app
 # COPY . .
 # RUN rm -r proxy
+
+# 14. Extend the dev stage and create a new stage called test
+FROM dev as test
+
+# 15. Copy the remainder of the client folder source code into the image's filesystem
+COPY . .
+
+# 16. Run node_module vulnerability checks
+RUN npm audit
+
+# 17. Run unit tests in CI
+RUN CI=true npm test --env=jsdom
 
 # ## Stage 4 (testing)
 # # use this in automated CI
@@ -88,17 +135,51 @@ WORKDIR /opt/this_app
 # RUN apk add --no-cache ca-certificates && update-ca-certificates
 # RUN /microscanner $MICROSCANNER_TOKEN --continue-on-failure
 
-## Stage 6 (default, production)
-# this will run by default if you don't include a target
-# it has prod-only dependencies
-# In BuildKit, this is skipped for dev and test stages
-FROM source as prod
-ENV NODE_ENV=development
-ENV PATH=/opt/this_app/node_modules/.bin:$PATH
-USER node
-WORKDIR /opt/this_app
-CMD ["yarn", "start"]
 
-# WORKDIR /usr/src/app
-# RUN npm install --production --silent && mv node_modules ../
-# CMD npm start
+####################################################################
+########                   BUILD STAGE                       #######
+####################################################################
+# 18. Extend the test stage and create a new stage named build-stage
+FROM test as build-stage
+
+# 19. Build the production static assets
+RUN npm run build
+
+# 20. Install aquasecurity's trivy for robust image scanning
+FROM aquasec/trivy:0.4.3 as trivy
+
+# 21. Scan the nginx alpine image before production use
+RUN trivy nginx:1.17-alpine && \
+    echo "No image vulnerabilities" > result
+
+####################################################################
+########                  PRODUCTION STAGE                   #######
+####################################################################
+# 22. Extend the nginx apline image and create a new stage named prod
+FROM nginx:1.17-alpine as prod
+
+# 23. Copy only the files we want from a few stages into the prod stage
+COPY --from=trivy result secure
+COPY --from=build-stage /client/this_app/build /usr/share/nginx/html
+
+# 24. Copy non-root user nginx configuration
+# https://hub.docker.com/_/nginx
+# COPY --from=build-stage /client/this_app/nginx /etc/nginx/
+
+# 25. Provide meta data about the port the container must expose
+EXPOSE 80
+
+# 26. Define how Docker should test the container to check that it is still working
+# HEALTHCHECK CMD [ "wget", "-q", "0.0.0.0:80" ]
+CMD ["nginx", "-g", "daemon off;"]
+
+# ## Stage 6 (default, production)
+# # this will run by default if you don't include a target
+# # it has prod-only dependencies
+# # In BuildKit, this is skipped for dev and test stages
+# FROM source as prod
+# ENV NODE_ENV=development
+# ENV PATH=/opt/this_app/node_modules/.bin:$PATH
+# USER node
+# WORKDIR /opt/this_app
+# CMD ["yarn", "start"]
