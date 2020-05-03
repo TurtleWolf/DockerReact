@@ -2,18 +2,19 @@ version: "2.4"
 
 services:
   client:
-    image: turtlewolfe/docker_react:nginxproduction
+    # image: turtlewolfe/docker_react:nginxproduction
+    image: turtlewolfe/docker_react:dev
     build:
       context: .
-      # target: dev
+      target: dev
     container_name: client
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
       - "80:80"
-    # volumes:
-    # - .:/client/app
-    # - ./app/node_modules
+    volumes:
+      - .:/client/this_app
+      - /client/this_app/node_modules
     # - ./client:/client/app
     # - /client/app/node_modules
     # networks:

@@ -1,4 +1,6 @@
-## Stage 1 (production base)
+####################################################################
+########            Stage 1 (production base)         ##############
+####################################################################
 
 # 1. Use the node apline image as the base stage of a multi-stage routine
 # FROM node:13.7.0-alpine as base
@@ -47,6 +49,10 @@ RUN npm config list \
     && npm cache clean --force
 WORKDIR /client/this_app
 
+
+####################################################################
+########                  Development STAGE                 ########
+####################################################################
 ## Stage 2 (development)
 # we don't COPY in this stage because for dev you'll bind-mount anyway
 # this saves time when building locally for dev via docker-compose
@@ -55,7 +61,7 @@ FROM base as dev
 
 # 6. Set the NODE_ENV and PATH Environment variables
 ENV NODE_ENV=development
-ENV PATH /client/node_modules/.bin:$PATH
+ENV PATH /client/this_app/node_modules/.bin:$PATH
 # ENV PATH /client/this_app/node_modules/.bin:$PATH
 
 
@@ -83,6 +89,10 @@ CMD ["npm", "run", "start"]
 # CMD ["npm", "run", "start", "--inspect=0.0.0.0:9229"]
 
 
+
+####################################################################
+########                  Source STAGE                  ############
+####################################################################
 ## Stage 3 (copy in source)
 # This gets our source code into builder for use in next two stages
 # It gets its own stage so we don't have to copy twice
@@ -99,11 +109,15 @@ FROM dev as test
 COPY . .
 
 # 16. Run node_module vulnerability checks
-RUN npm audit
+# RUN npm audit
 
 # 17. Run unit tests in CI
 RUN CI=true npm test --env=jsdom
 
+
+####################################################################
+########                  Testing STAGE                  ###########
+####################################################################
 # ## Stage 4 (testing)
 # # use this in automated CI
 # # it has prod and dev npm dependencies
@@ -123,6 +137,10 @@ RUN CI=true npm test --env=jsdom
 # WORKDIR /opt/this_app
 # CMD ["npm", "run", "int-test"] 
 
+
+####################################################################
+########                  Security STAGE                  ##########
+####################################################################
 # ## Stage 5 (security scanning and audit)
 # FROM test as audit
 # RUN npm audit
@@ -153,7 +171,7 @@ RUN trivy nginx:1.17-alpine && \
     echo "No image vulnerabilities" > result
 
 ####################################################################
-########                  PRODUCTION STAGE                   #######
+########                  PRODUCTION STAGE                  ########
 ####################################################################
 # ## Stage 6 (default, production)
 # # this will run by default if you don't include a target
