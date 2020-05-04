@@ -1,4 +1,4 @@
-version: "2.4"
+version: '2.4'
 
 services:
   client:
@@ -6,12 +6,14 @@ services:
     image: turtlewolfe/docker_react:dev
     build:
       context: .
-      target: dev
+      # target: dev
     container_name: client
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
+      # NODE_ENV: development
     ports:
-      - "80:80"
+      - '80:80'
+      - '3000:3000'
     volumes:
       - .:/client/this_app
       - /client/this_app/node_modules

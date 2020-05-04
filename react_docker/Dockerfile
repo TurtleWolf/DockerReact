@@ -27,9 +27,6 @@ COPY .bashrc /home/node
 # 2. Set the working directory to /client
 WORKDIR /client
 
-# # 3. Copy both package.json and package-lock.json into /client in the image's filesystem
-# COPY package*.json ./
-# COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 
 # # 4. Install only the production node_modules and clean up the cache
 # RUN npm ci \
@@ -41,14 +38,18 @@ RUN apt-get update \
     && apt-get install curl -y \
     && npm config list
 # node comes with a default user
-# USER node
+USER node
+
+# # 3. Copy both package.json and package-lock.json into /client in the image's filesystem
+# COPY package*.json ./
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+
 # we use npm ci here so only the package-lock.json file is used
 RUN npm config list \
     # && npm ci \
     && npx create-react-app this_app \
     && npm cache clean --force
 WORKDIR /client/this_app
-
 
 ####################################################################
 ########                  Development STAGE                 ########
@@ -83,6 +84,8 @@ RUN npm config list
 # 12. Set the working directory to /client/app
 WORKDIR /client/this_app
 
+USER node
+
 # ENTRYPOINT [ "/sbin/tini", "--"]
 # 13. Provide the default command for the development container
 CMD ["npm", "run", "start"]
@@ -112,7 +115,7 @@ COPY . .
 # RUN npm audit
 
 # 17. Run unit tests in CI
-RUN CI=true npm test --env=jsdom
+# RUN CI=true npm test --env=jsdom
 
 
 ####################################################################
