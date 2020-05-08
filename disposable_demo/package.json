@@ -1,5 +1,5 @@
 {
-  "name": "docker_reactdev",
+  "name": "but_this_-istrash",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
