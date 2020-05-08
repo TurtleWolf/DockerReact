@@ -1,19 +1,22 @@
-version: '2.4'
+version: "2.4"
 
 services:
   client:
     # image: turtlewolfe/docker_react:nginxproduction
-    image: turtlewolfe/docker_react:dev
+    image: turtlewolfe/docker_react:story
     build:
       context: .
       # target: dev
-    container_name: client
+      target: story
+    # container_name: client
+    container_name: storyBook
     environment:
-      NODE_ENV: production
-      # NODE_ENV: development
+      # NODE_ENV: production
+      NODE_ENV: development
     ports:
-      - '80:80'
-      - '3000:3000'
+      - "80:80"
+      - "3000:3000"
+      - "9009:9009"
     volumes:
       - .:/client/this_app
       - /client/this_app/node_modules

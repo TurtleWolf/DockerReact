@@ -97,9 +97,13 @@ CMD ["npm", "run", "start"]
 ########                  StoryBook STAGE                  #########
 ####################################################################
 FROM dev as story
+# RUN npm install @storybook/cli -g
 RUN npx -p @storybook/cli sb init --type react_scripts
+# RUN npx -p @storybook/cli sb init --type react_scripts && getstorybook
+# RUN getstorybook
 WORKDIR /client/this_app
 CMD ["npm", "run", "storybook"]
+# CMD ["yarn", "storybook"]
 
 ####################################################################
 ########                  Source STAGE                  ############
