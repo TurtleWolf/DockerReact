@@ -7,24 +7,25 @@
 FROM node:12.16.1-stretch-slim as base
 # This gets our prod dependencies installed and out of the way
 
-# 7. Provide meta data about the port the container must expose
+# 2. Provide meta data about the port the container must expose
 # set this with shell variables at build-time.
 # If they aren't set, then not-set will be default.
-ARG CREATED_DATE=April2020
+ARG CREATED_DATE=May-2020
 ARG SOURCE_COMMIT=not-set
 # labels from https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.authors=TurtleWolfe.com
 LABEL org.opencontainers.image.created=$CREATED_DATE
 LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
-LABEL org.opencontainers.image.title="DockerReact"
-LABEL org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/DockerReact
-LABEL org.opencontainers.image.source=https://github.com/TurtleWolf/DockerReact
+LABEL org.opencontainers.image.title="RNDs"
+LABEL org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/RNDs
+LABEL org.opencontainers.image.source=https://github.com/TurtleWolf/RNDs
 LABEL org.opencontainers.image.licenses=MIT
 LABEL com.TurtleWolfe.nodeversion=$NODE_VERSION
 EXPOSE 3000
+EXPOSE 9009
 COPY .bashrc /home/node
 
-# 2. Set the working directory to /client
+# 15. Set the working directory to /client
 WORKDIR /client
 
 
@@ -37,10 +38,11 @@ RUN apt-get update \
     && chown -R node:node . \
     && apt-get install curl -y \
     && npm config list
+
 # node comes with a default user
 USER node
 
-# # 3. Copy both package.json and package-lock.json into /client in the image's filesystem
+# # 18. Copy both package.json and package-lock.json into /client in the image's filesystem
 # COPY package*.json ./
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 
@@ -57,10 +59,10 @@ WORKDIR /client/this_app
 ## Stage 2 (development)
 # we don't COPY in this stage because for dev you'll bind-mount anyway
 # this saves time when building locally for dev via docker-compose
-# 5. Extend the base stage and create a new stage named dev
+# 21. Extend the base stage and create a new stage named dev
 FROM base as dev
 
-# 6. Set the NODE_ENV and PATH Environment variables
+#22. Set the NODE_ENV and PATH Environment variables
 ENV NODE_ENV=development
 ENV PATH /client/this_app/node_modules/.bin:$PATH
 # ENV PATH /client/this_app/node_modules/.bin:$PATH
@@ -69,7 +71,7 @@ ENV PATH /client/this_app/node_modules/.bin:$PATH
 # 8. Create a new /app directory in /client
 # RUN mkdir /client/this_app
 
-# 9. Install development dependencies
+# 24. Install development dependencies
 # RUN npm install --only=development --silent
 RUN npm i --only=development \
     && npm cache clean --force
@@ -78,20 +80,26 @@ RUN npm i --only=development \
 # https://github.com/facebook/create-react-app/issues/8075
 # COPY patch.js /client/node_modules/react-dev-utils/webpackHotDevClient.js
 
-# 24. Print npm configuration for debugging purposes
+# 25. Print npm configuration for debugging purposes
 RUN npm config list
 
-# 12. Set the working directory to /client/app
+# 26. Set the working directory to /client/app
 WORKDIR /client/this_app
 
 USER node
 
 # ENTRYPOINT [ "/sbin/tini", "--"]
-# 13. Provide the default command for the development container
+# 28. Provide the default command for the development container
 CMD ["npm", "run", "start"]
 # CMD ["npm", "run", "start", "--inspect=0.0.0.0:9229"]
 
-
+####################################################################
+########                  StoryBook STAGE                  #########
+####################################################################
+FROM dev as story
+RUN npx -p @storybook/cli sb init --type react_scripts
+WORKDIR /client/this_app
+CMD ["npm", "run", "storybook"]
 
 ####################################################################
 ########                  Source STAGE                  ############
@@ -102,20 +110,8 @@ CMD ["npm", "run", "start"]
 # this stage starts from the first one and skips the last two
 FROM base as source
 WORKDIR /client/this_app
-# COPY . .
-# RUN rm -r proxy
-
-# 14. Extend the dev stage and create a new stage called test
-FROM dev as test
-
-# 15. Copy the remainder of the client folder source code into the image's filesystem
 COPY . .
-
-# 16. Run node_module vulnerability checks
-# RUN npm audit
-
-# 17. Run unit tests in CI
-# RUN CI=true npm test --env=jsdom
+# RUN rm -r proxy
 
 
 ####################################################################
@@ -126,6 +122,18 @@ COPY . .
 # # it has prod and dev npm dependencies
 # # In 18.09 or older builder, this will always run
 # # In BuildKit, this will be skipped by default 
+# 32. Extend the dev stage and create a new stage called test
+FROM source as test
+
+# 32. Copy the remainder of the client folder source code into the image's filesystem
+# COPY . .
+
+# 33. Run node_module vulnerability checks
+# RUN npm audit
+
+# 34. Run unit tests in CI
+RUN CI=true npm test --env=jsdom
+
 # FROM source as test
 # ENV NODE_ENV=development
 # ENV PATH=/opt/node_modules/.bin:$PATH
