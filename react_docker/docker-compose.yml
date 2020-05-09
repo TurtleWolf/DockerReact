@@ -1,4 +1,4 @@
-version: '2.4'
+version: "2.4"
 
 services:
   client:
@@ -12,9 +12,8 @@ services:
       # NODE_ENV: production
       NODE_ENV: development
     ports:
-      - '80:80'
-      - '3000:3000'
-      # - "9009:9009"
+      # - "80:80"
+      - "3003:3000"
     volumes:
       - .:/client/this_app
       - /client/this_app/node_modules
@@ -41,7 +40,7 @@ services:
       # NODE_ENV: production
       NODE_ENV: development
     ports:
-      - '9009:9009'
+      - "9009:9009"
     volumes:
       - .:/client/this_app
       - /client/this_app/node_modules

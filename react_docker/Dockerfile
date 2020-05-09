@@ -102,6 +102,7 @@ RUN npx -p @storybook/cli sb init --type react_scripts
 # RUN npx -p @storybook/cli sb init --type react_scripts && getstorybook
 # RUN getstorybook
 WORKDIR /client/this_app
+USER node
 CMD ["npm", "run", "storybook"]
 # CMD ["yarn", "storybook"]
 
