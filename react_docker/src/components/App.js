@@ -1,6 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../shared/imgages/logo.svg';
+// We import our Home component here...
+import Home from '../components/Home/Home';
+import '../components/App.css';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         >
           Learn React
         </a>
+        {/* Here we add our Home component to be render it */}
       </header>
+      <Home />
     </div>
   );
 }
