@@ -2,16 +2,17 @@
 
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-I attached a storybook from chapter 7 in `Tooling`  
-then modified the structure according to the first few chapters of the React `Cook Book`
+I attached a storybook from chapter 7 in **`Tooling`**  
+then modified the structure according to the first few chapters of the React **`Cook Book`**
 
-from the root directory change to react_docker  
-`cd react_docker`
+Assuming you already have **Docker** running locally on your machine
+from the root directory of this repo change to react_docker  
+**`cd react_docker`**
 
 running docker-compose up should start a dev server
 and a dev-story server, both bound
 to the local devolepment folder  
-`docker-compose up --build`
+**`docker-compose up --build`**
 
 [![React Tooling cover](/ReferenceNotes/Images/ReactTooling.png 'React 16 Tooling covers the most important tools, utilities, and libraries that every React developer needs to know — in detail. By Adam Boduch, April 2018')](https://subscription.packtpub.com/book/web_development/9781788835015 'By Carlos Santana Roldán August 2018c')
 [![React Cook Book cover](https://raw.githubusercontent.com/TurtleWolf/react_scaffolding/master/ReactCookBook.png 'React Cook Book By Carlos Santana Roldán August 2018')](https://subscription.packtpub.com/book/web-development/9781783980727 'By Carlos Santana Roldán August 2018c')

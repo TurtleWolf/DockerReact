@@ -48,7 +48,7 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 
 # we use npm ci here so only the package-lock.json file is used
 RUN npm config list \
-    # && npm ci \
+    && npm ci \
     && npx create-react-app this_app \
     && npm cache clean --force
 WORKDIR /client/this_app
