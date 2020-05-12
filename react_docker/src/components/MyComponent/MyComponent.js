@@ -1,21 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Home extends Component {
-    render() {
-        return <frameElement>
-            <p>
-                Edit <code>src/components/Home/Home.js</code> and save to reload.
-            </p >
-            <a
-                className="App-link"
-                href="https://github.com/TurtleWolf/DockerReact"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                https://github.com/TurtleWolf/DockerReact
-        </a>
-        </frameElement>;
-    }
-}
+const MyComponent = ({ title, content, titleStyle, contentStyle }) => (
+    <section>
+        <heading>
+            <h2 style={titleStyle}>{title}</h2>
+        </heading>
+        <article style={contentStyle}>{content}</article>
+    </section>
+);
 
-export default Home;
+export default MyComponent; 
