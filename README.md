@@ -117,3 +117,9 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 # docker inspect --format='{{json .Config}}' socialdev_coursebt_mern_auth_1 | jq
 # ENTRYPOINT [ "../node_modules/nodemon/bin/nodemon.js", "--"]
 ```
+
+```bash
+npx create-react-app disposable --use-npm
+npx -p @storybook/cli sb init
+npm install -D @storybook/addon-storyshots react-test-renderer
+```
