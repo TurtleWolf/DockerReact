@@ -12,7 +12,7 @@ import Footer from '../shared/components/layout/Footer';
 function App() {
   return (
     <div className="App">
-      <Header title="React in a DockerContainer" />
+      <Header title="Create-React-App StoryBook in a DockerContainer" />
 
       <Content>
         <Home />
