@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // We import our Home component here...
 import Home from '../components/Home/Home';
 import '../components/App.css';
-
+import Todo from '../components/ToDo/Todo';
 // Layout Components
 import Header from '../shared/components/layout/Header';
 import Content from '../shared/components/layout/Content';
@@ -18,6 +18,7 @@ class App extends Component {
 
         <Content>
           <Home />
+          <Todo />
         </Content>
 
         <Footer />

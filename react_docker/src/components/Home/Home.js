@@ -24,6 +24,14 @@ class Home extends Component {
         return (
             <div className="Home">
                 <p>Hi my name is {this.state.name}</p>
+                <a
+                    className="App-link"
+                    href="https://reactjs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn React
+        </a>
             </div>
         );
     }
