@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import List from './List';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import './Todo.css';
 
 class Todo extends Component {
