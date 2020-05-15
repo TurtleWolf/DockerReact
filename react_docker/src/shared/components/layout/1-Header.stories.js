@@ -12,7 +12,7 @@ storiesOf('Header', module)
   Opening Content on the Header page, encapsulated as it's own component 
 `)(() => (
     <Header
-      title={text('Title', 'React in a DockerContainer')}
+      title={text('Title', 'React-StoryBook in a Docker Container')}
       content={text('Content', 'In this recipe you will learn how to add styles to components. If you want to learn more you can visit our Youtube Channel ')}
       titleStyle={object('Title Style', { fontWeight: 'normal' })}
       contentStyle={object('Content Style', {
