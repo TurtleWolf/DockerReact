@@ -16,9 +16,9 @@ ARG SOURCE_COMMIT=not-set
 LABEL org.opencontainers.image.authors=TurtleWolfe.com
 LABEL org.opencontainers.image.created=$CREATED_DATE
 LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
-LABEL org.opencontainers.image.title="RNDs"
-LABEL org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/RNDs
-LABEL org.opencontainers.image.source=https://github.com/TurtleWolf/RNDs
+LABEL org.opencontainers.image.title="CreateReactAppStoryBookDockerContainer"
+LABEL org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/ReactDocker
+LABEL org.opencontainers.image.source=https://github.com/TurtleWolf/ReactDocker
 LABEL org.opencontainers.image.licenses=MIT
 LABEL com.TurtleWolfe.nodeversion=$NODE_VERSION
 EXPOSE 3000
@@ -49,7 +49,7 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 # we use npm ci here so only the package-lock.json file is used
 RUN npm config list \
     && npm ci \
-    && npx create-react-app this_app \
+    # && npx create-react-app this_app \
     && npm cache clean --force
 WORKDIR /client/this_app
 
@@ -98,7 +98,7 @@ CMD ["npm", "run", "start"]
 ####################################################################
 FROM dev as story
 # RUN npm install @storybook/cli -g
-RUN npx -p @storybook/cli sb init --type react_scripts
+# RUN npx -p @storybook/cli sb init --type react_scripts
 # RUN npx -p @storybook/cli sb init --type react_scripts && getstorybook
 # RUN getstorybook
 WORKDIR /client/this_app
