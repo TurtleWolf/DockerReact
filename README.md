@@ -119,7 +119,34 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 ```
 
 ```bash
-npx create-react-app disposable --use-npm
-npx -p @storybook/cli sb init
-npm install -D @storybook/addon-storyshots react-test-renderer
+ cd disposable
+
+ npx create-react-app disposable --use-npm
+ npm i -p @storybook/addon-knobs
+ npm i @storybook/addon-storyshots
+ npm install -D @storybook/addon-info
+ npm install -D @storybook/addon-storyshots react-test-renderer
+ npm install @storybook/addon-info
+ npm install @storybook/addon-knobs
+ npm install prop-types
+ npm install react-redux redux
+ npm run storybook
+ npx -p @storybook/addon-knobs
+ npx -p @storybook/cli sb init --type react_scripts
+ npx i -p @storybook/addon-knobs
+
+
+ npx create-react-app disposable --use-npm
+ cd disposable
+ npm install uuid
+ npx -p @storybook/cli sb init --type react_scripts
+
+ npm i --save @fortawesome/fontawesome-svg-core
+ npm i --save @fortawesome/free-solid-svg-icons
+ npm i --save @fortawesome/react-fontawesome
+
+ npx -p @storybook/addon-knobs --dev
+ npm install -D @storybook/addon-storyshots react-test-renderer
+ npm install -D prop-types
+ npm install -D react-redux redux
 ```
