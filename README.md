@@ -145,7 +145,8 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 #################
  npx create-react-app disposable --use-npm
  cd disposable
- npx -p @storybook/cli sb init --type react_scripts
+ npx -p @storybook/cli sb init
+#  npx -p @storybook/cli sb init --type react_scripts && getstorybook
 #dependencies?
  npm i --save @fortawesome/fontawesome-svg-core
  npm i --save @fortawesome/free-solid-svg-icons

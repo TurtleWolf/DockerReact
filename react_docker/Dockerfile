@@ -49,7 +49,7 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 # we use npm ci here so only the package-lock.json file is used
 RUN npm config list \
     && npm ci \
-    # && npx create-react-app this_app \
+    && npx create-react-app this_app \
     && npm cache clean --force
 WORKDIR /client/this_app
 
@@ -98,6 +98,7 @@ CMD ["npm", "run", "start"]
 ####################################################################
 FROM dev as story
 # RUN npm install @storybook/cli -g
+RUN npx -p @storybook/cli sb init
 # RUN npx -p @storybook/cli sb init --type react_scripts
 # RUN npx -p @storybook/cli sb init --type react_scripts && getstorybook
 # RUN getstorybook
