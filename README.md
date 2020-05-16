@@ -135,18 +135,28 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
  npx -p @storybook/cli sb init --type react_scripts
  npx i -p @storybook/addon-knobs
 
+#################
+#################
+#################
+#################
+#################
+#################
 
+#################
  npx create-react-app disposable --use-npm
  cd disposable
- npm install uuid
  npx -p @storybook/cli sb init --type react_scripts
-
+#dependencies?
  npm i --save @fortawesome/fontawesome-svg-core
  npm i --save @fortawesome/free-solid-svg-icons
  npm i --save @fortawesome/react-fontawesome
-
- npx -p @storybook/addon-knobs --dev
+ npm i --save prop-types
+ npm i --save react-redux redux
+ npm i --save uuid
+#dev dependencies?
  npm install -D @storybook/addon-storyshots react-test-renderer
- npm install -D prop-types
- npm install -D react-redux redux
+ npm install -D @storybook/addon-knobs
+ npm install -D @storybook/addon-info
+
+ npm i -D @storybook/react
 ```
