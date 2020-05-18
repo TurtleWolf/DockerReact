@@ -1,6 +1,8 @@
 .footer {
-  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+  color: bisque;
+  text-shadow: 0 0 3px #beff81, 0 0 5px #6767fb;
 }
 .footer:hover {
+  color: lightskyblue;
   text-shadow: 2px 2px #3b2f2f;
 }
