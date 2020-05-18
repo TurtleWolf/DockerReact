@@ -1,36 +1,34 @@
-version: "2.4"
+version: '2.4'
 
 services:
-  client:
-    # image: turtlewolfe/docker_react:nginxproduction
-    image: turtlewolfe/docker_react:dev
-    build:
-      context: .
-      target: dev
-    # container_name: reactFrontEnd
-    environment:
-      # NODE_ENV: production
-      NODE_ENV: development
-    ports:
-      # - "80:80"
-      - "3003:3000"
-    volumes:
-      - .:/client/this_app
-      - /client/this_app/node_modules
-    labels:
-      - org.opencontainers.image.authors=TurtleWolfe.com
-      # - org.opencontainers.image.created=$CREATED_DATE
-      # - org.opencontainers.image.revision=$SOURCE_COMMIT
-      - org.opencontainers.image.title="DockerReact"
-      - org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/DockerReact
-      - org.opencontainers.image.source=https://github.com/TurtleWolf/DockerReact
-      - org.opencontainers.image.licenses=MIT
-      # - com.TurtleWolfe.nodeversion=$NODE_VERSION
-    tty: true
-    # stdin_open: true
-    # command: dlv debug --accept-multiclient --continue --headless --listen=:2345 --api-version=2 --log ./cmd/api/
+  # client:
+  #   image: turtlewolfe/docker_react:dev
+  #   build:
+  #     context: .
+  #     target: dev
+  #   # container_name: reactFrontEnd
+  #   environment:
+  #     # NODE_ENV: production
+  #     NODE_ENV: development
+  #   ports:
+  #     # - "80:80"
+  #     - "3000:3000"
+  #   volumes:
+  #     - .:/client/this_app
+  #     - /client/this_app/node_modules
+  #   labels:
+  #     - org.opencontainers.image.authors=TurtleWolfe.com
+  #     # - org.opencontainers.image.created=$CREATED_DATE
+  #     # - org.opencontainers.image.revision=$SOURCE_COMMIT
+  #     - org.opencontainers.image.title="DockerReact"
+  #     - org.opencontainers.image.url=https://hub.docker.com/TurtleWolfe/DockerReact
+  #     - org.opencontainers.image.source=https://github.com/TurtleWolf/DockerReact
+  #     - org.opencontainers.image.licenses=MIT
+  #     # - com.TurtleWolfe.nodeversion=$NODE_VERSION
+  #   tty: true
 
   story:
+    # image: turtlewolfe/docker_react:nginxproduction
     image: turtlewolfe/docker_react:dev_storybook
     build:
       context: .
@@ -40,7 +38,7 @@ services:
       # NODE_ENV: production
       NODE_ENV: development
     ports:
-      - "9009:9009"
+      - '9009:9009'
     volumes:
       - .:/client/this_app
       - /client/this_app/node_modules

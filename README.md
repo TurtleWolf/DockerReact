@@ -161,4 +161,5 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
  npm install -D @storybook/addon-info
 
  npm i -D @storybook/react
+ npm install @storybook/theming --save-dev
 ```
