@@ -31,11 +31,12 @@
 
 .Home h1 {
   font-size: 32px;
-  color: #333;
+  color: bisque;
+  /* text-align: center; */
 }
 
 .Home p {
-  color: #333;
+  color: beige;
   text-align: center;
 }
 
@@ -45,7 +46,8 @@
 }
 
 .Home a:hover {
-  color: #333;
+  color: #56d5fa;
+  text-shadow: 0 0 3px #beff81, 0 0 5px #6767fb;
 }
 
 .Notes {
@@ -243,6 +245,10 @@
   color: #61dafb;
 }
 
+.App-link:hover {
+  color: #61dafb;
+}
+
 @-webkit-keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -262,4 +268,4 @@
 }
 
 
-/*# sourceMappingURL=main.3359f7cf.chunk.css.map*/
+/*# sourceMappingURL=main.7770b579.chunk.css.map*/
