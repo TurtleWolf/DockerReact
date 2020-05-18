@@ -5,11 +5,12 @@
 
 .Home h1 {
   font-size: 32px;
-  color: #333;
+  color: bisque;
+  /* text-align: center; */
 }
 
 .Home p {
-  color: #333;
+  color: beige;
   text-align: center;
 }
 
@@ -19,5 +20,6 @@
 }
 
 .Home a:hover {
-  color: #333;
+  color: #56d5fa;
+  text-shadow: 0 0 3px #beff81, 0 0 5px #6767fb;
 }
