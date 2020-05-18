@@ -1,0 +1,6 @@
+.footer {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+.footer:hover {
+  text-shadow: 2px 2px #3b2f2f;
+}

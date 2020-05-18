@@ -1,15 +1,18 @@
 import React from 'react';
+import './Footer.css';
 
 // Since we don't have props, we can directly return our JSX.
 const Footer = () => (
-    <footer>&copy; <a
-        className="App-link"
+    <footer><a
+        className="App-link, footer"
         href="https://TurtleWolfe.com"
         target="_blank"
         rel="noopener noreferrer"
     >
+        &copy;
         TurtleWolfe.com
-                    </a> {(new Date()).getFullYear()}</footer>
+        {(new Date()).getFullYear()}
+    </a></footer>
 );
 
 export default Footer;
