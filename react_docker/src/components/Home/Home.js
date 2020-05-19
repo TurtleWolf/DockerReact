@@ -74,13 +74,13 @@ class Home extends Component {
                         rel="noopener noreferrer"
                     > Docker
                     </a>,
-                    move from this root directory into docker_react
+                    move from this root directory into react_docker
                     and build the story server
                 </p>
                 <p>
                     <Button code>
                         <code>
-                            cd docker_react
+                            cd react_docker
                     </code>
                     </Button>
 
