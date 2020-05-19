@@ -1,5 +1,26 @@
 import React, { Component } from 'react';
 import './Home.css';
+import styled, { css } from 'styled-components';
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+
+  ${props =>
+        props.primary &&
+        css`
+      background: black;
+      color: white;
+    `};  
+`;
+
+const Container = styled.div`
+  text-align: center;
+`;
 
 class Home extends Component {
     constructor() {
@@ -23,11 +44,7 @@ class Home extends Component {
 
     render() {
         console.log('Name:', this.state.name);
-        // Style object...
-        const buttonStyle = {
-            backgroundColor: 'yellow',
-            border: '1px solid black'
-        };
+
         return (
             <div className="Home">
 
@@ -37,12 +54,35 @@ class Home extends Component {
                     watch me work live
                 </p>
                 <p>
-                    <button style={buttonStyle}><a href="https://www.twitch.tv/turtlewolfe">twitch.tv/TurtleWolfe</a></button>
+                    <Button primary><a href="https://www.twitch.tv/turtlewolfe">twitch.tv/TurtleWolfe</a></Button>
+                </p>
+                <p>
+                    For local development move from the root directory into docker_react
+                    and build the story server
+                </p>
+                <p>
+                    <code>
+                        cd docker_react
+                    </code>
+                </p>
+                <p>
+                    <code>
+                        docker-compose build -up
+                    </code>
                 </p>
                 <p>
                     Edit <code>src/components/Home/Home.js</code> and save to reload.
-                </p >
-                <h1>Docker StoryBook</h1>
+                </p>
+                <h2>
+                    <a
+                        className="App-link"
+                        href="https://github.com/TurtleWolf/DockerReact"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Docker StoryBook repo
+                </a>
+                </h2>
                 <a
                     className="App-link"
                     href="https://reactjs.org"
@@ -51,6 +91,7 @@ class Home extends Component {
                 >
                     Learn React
         </a>
+                <Button primary>economies are just abstactions of our values</Button>
             </div>
         );
     }
