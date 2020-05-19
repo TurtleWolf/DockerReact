@@ -14,7 +14,16 @@ const Button = styled.button`
         props.primary &&
         css`
       background: black;
-      color: white;
+      color: red;
+    `};
+    ${props =>
+        props.code &&
+        css`
+      float: left;
+      text-align: left;
+      background: black;
+      color: yellow;
+      margin-bottom: 1em;
     `};  
 `;
 
@@ -39,7 +48,7 @@ class Home extends Component {
             this.setState({
                 name: 'TurtleWolfe'
             });
-        }, 1700);
+        }, 4000);
     }
 
     render() {
@@ -57,18 +66,32 @@ class Home extends Component {
                     <Button primary><a href="https://www.twitch.tv/turtlewolfe">twitch.tv/TurtleWolfe</a></Button>
                 </p>
                 <p>
-                    For local development move from the root directory into docker_react
+                    For local development I assume you've already insatlled
+                        <a
+                        className="App-link"
+                        href="https://hub.docker.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    > Docker
+                    </a>,
+                    move from this root directory into docker_react
                     and build the story server
                 </p>
                 <p>
-                    <code>
-                        cd docker_react
+                    <Button code>
+                        <code>
+                            cd docker_react
                     </code>
+                    </Button>
+
+
                 </p>
                 <p>
-                    <code>
-                        docker-compose build -up
+                    <Button code>
+                        <code>
+                            docker-compose build -up
                     </code>
+                    </Button>
                 </p>
                 <p>
                     Edit <code>src/components/Home/Home.js</code> and save to reload.
@@ -83,6 +106,17 @@ class Home extends Component {
                         Docker StoryBook repo
                 </a>
                 </h2>
+                <p>
+                    alternatively, use the package.json to install all the
+                        <a
+                        className="App-link"
+                        href="https://hub.docker.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    > Node.JS
+                    </a>,
+                    modules locally..
+                </p>
                 <a
                     className="App-link"
                     href="https://reactjs.org"
