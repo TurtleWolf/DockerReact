@@ -20,6 +20,7 @@ const Button = styled.button`
         props.code &&
         css`
       float: left;
+      clear: left;
       text-align: left;
       background: black;
       color: yellow;
@@ -107,14 +108,14 @@ class Home extends Component {
                 </a>
                 </h2>
                 <p>
-                    alternatively, use the package.json to install all the
+                    alternatively, use the package.json<br />to install all the
                         <a
                         className="App-link"
                         href="https://hub.docker.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                     > Node.JS
-                    </a>,
+                    </a><span></span>
                     modules locally..
                 </p>
                 <a
