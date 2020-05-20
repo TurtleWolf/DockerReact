@@ -115,8 +115,8 @@ class Home extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                     > Node.JS
-                    </a><span></span>
-                    modules locally..
+                    </a>&nbsp;
+                    modules locally
                 </p>
                 <a
                     className="App-link"
