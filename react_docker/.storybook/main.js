@@ -4,6 +4,7 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-knobs/register',
     '@storybook/addon-links',
+    '@storybook/addon-docs',
     // '@storybook/theming',
     // '@storybook/addon-storysource',
     '@storybook/preset-create-react-app',

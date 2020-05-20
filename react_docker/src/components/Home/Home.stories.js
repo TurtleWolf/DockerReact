@@ -26,7 +26,7 @@ export const actionsData = {
 
 export const Default = () => <Home home={{ ...homeData }} {...actionsData} />;
 
-export const Pinned = () => <Task home={{ ...homeData, state: 'HOME_PINNED' }} {...actionsData} />;
+export const Pinned = () => <Home home={{ ...homeData, state: 'HOME_PINNED' }} {...actionsData} />;
 
 export const Archived = () => (
     <Home home={{ ...homeData, state: 'HOME_ARCHIVED' }} {...actionsData} />
