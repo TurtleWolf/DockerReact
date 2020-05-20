@@ -161,8 +161,10 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 #dev dependencies?
  npm install -D @storybook/addon-storyshots react-test-renderer
  npm install -D @storybook/addon-knobs
- npm install -D @storybook/addon-info
- npm i @storybook/storybook-deployer --save-dev
+#  npm install -D @storybook/addon-info
+#  npm i @storybook/storybook-deployer --save-dev
  npm i -D @storybook/react
  npm install @storybook/theming --save-dev
+#  npm install @storybook/addon-storysource --dev
+ yarn add -D @storybook/addon-docs
 ```

@@ -4,8 +4,21 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-knobs/register',
     '@storybook/addon-links',
-    '@storybook/preset-create-react-app',
     // '@storybook/theming',
+    // '@storybook/addon-storysource',
+    '@storybook/preset-create-react-app',
+    // {
+    //   name: '@storybook/addon-storysource',
+    //   options: {
+    //     rule: {
+    //       // test: [/\.stories\.jsx?$/], This is default
+    //       include: [path.resolve(__dirname, '../src')], // You can specify directories
+    //     },
+    //     loaderOptions: {
+    //       prettierConfig: { printWidth: 80, singleQuote: false },
+    //     },
+    //   },
+    // },
   ],
 };
 // //  documentation is out of date? This use to be set in a different file
