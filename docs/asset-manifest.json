@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "./static/css/main.d4888680.chunk.css",
-    "main.js": "./main.1cc627b8d534207e0245.bundle.js",
+    "main.js": "./main.d40d1432818ac7e22f74.bundle.js",
     "main.css.map": "./static/css/main.d4888680.chunk.css.map",
-    "main.js.map": "./main.1cc627b8d534207e0245.bundle.js.map",
-    "runtime~main.js": "./runtime~main.1cc627b8d534207e0245.bundle.js",
-    "runtime~main.js.map": "./runtime~main.1cc627b8d534207e0245.bundle.js.map",
-    "vendors~main.js": "./vendors~main.1cc627b8d534207e0245.bundle.js",
-    "vendors~main.js.map": "./vendors~main.1cc627b8d534207e0245.bundle.js.map",
+    "main.js.map": "./main.d40d1432818ac7e22f74.bundle.js.map",
+    "runtime~main.js": "./runtime~main.d40d1432818ac7e22f74.bundle.js",
+    "runtime~main.js.map": "./runtime~main.d40d1432818ac7e22f74.bundle.js.map",
+    "vendors~main.js": "./vendors~main.d40d1432818ac7e22f74.bundle.js",
+    "vendors~main.js.map": "./vendors~main.d40d1432818ac7e22f74.bundle.js.map",
     "iframe.html": "./iframe.html",
-    "precache-manifest.ef74aa6588cb2347a903300a4e55d653.js": "./precache-manifest.ef74aa6588cb2347a903300a4e55d653.js",
+    "precache-manifest.f78feba6f09af080bacead5cff2c75c2.js": "./precache-manifest.f78feba6f09af080bacead5cff2c75c2.js",
     "service-worker.js": "./service-worker.js",
     "static/media/logo.svg": "./static/media/logo.5d5d9eef.svg",
     "static/media/style.css": "./static/media/style.5ae4a044.css",
-    "vendors~main.1cc627b8d534207e0245.bundle.js.LICENSE.txt": "./vendors~main.1cc627b8d534207e0245.bundle.js.LICENSE.txt"
+    "vendors~main.d40d1432818ac7e22f74.bundle.js.LICENSE.txt": "./vendors~main.d40d1432818ac7e22f74.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.1cc627b8d534207e0245.bundle.js",
-    "vendors~main.1cc627b8d534207e0245.bundle.js",
+    "runtime~main.d40d1432818ac7e22f74.bundle.js",
+    "vendors~main.d40d1432818ac7e22f74.bundle.js",
     "static/css/main.d4888680.chunk.css",
-    "main.1cc627b8d534207e0245.bundle.js"
+    "main.d40d1432818ac7e22f74.bundle.js"
   ]
 }
