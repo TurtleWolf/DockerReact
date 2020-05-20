@@ -55,6 +55,7 @@
     "@storybook/preset-create-react-app": "^2.1.2",
     "@storybook/react": "^5.3.18",
     "@storybook/theming": "^5.3.18",
+    "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1"
   }
 }

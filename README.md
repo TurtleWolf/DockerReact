@@ -164,9 +164,11 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 #  npm install -D @storybook/addon-info
 #  npm i @storybook/storybook-deployer --save-dev
  npm i -D @storybook/react
+ npm install -D @storybook/preset-create-react-app
  npm install @storybook/theming --save-dev
 #  npm install @storybook/addon-storysource --dev
 #  yarn add -D @storybook/addon-docs
 npm install @storybook/addon-docs --save-dev
 npm install @storybook/addon-storysource --save-dev
+npm install prettier --save-dev
 ```

@@ -1,13 +1,19 @@
 module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [
+    '@storybook/preset-create-react-app',
     '@storybook/addon-actions',
     '@storybook/addon-knobs/register',
     '@storybook/addon-links',
-    '@storybook/addon-docs',
+    '@storybook/addon-storysource',
+    // '@storybook/addon-docs',
     // '@storybook/theming',
-    // '@storybook/addon-storysource',
-    '@storybook/preset-create-react-app',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+      },
+    },
     // {
     //   name: '@storybook/addon-storysource',
     //   options: {
@@ -22,7 +28,3 @@ module.exports = {
     // },
   ],
 };
-// //  documentation is out of date? This use to be set in a different file
-// //  which has been merged into the main.js..
-//   addons.setConfig({
-//   theme: themes.dark,
