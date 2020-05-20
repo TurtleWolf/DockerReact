@@ -1,11 +1,6 @@
 // manager.js
 import { themes } from '@storybook/theming/create';
 import { addons } from '@storybook/addons';
-import { addParameters } from '@storybook/react';
-
-addParameters({
-    notes: 'global notes',
-});
 
 addons.setConfig({
     /**
