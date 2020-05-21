@@ -172,4 +172,8 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 npm install @storybook/addon-docs --save-dev
 npm install @storybook/addon-storysource --save-dev
 npm install prettier --save-dev
+# yarn add --dev chromatic
+npm install chromatic --save-dev
+# yarn add --dev @storybook/addon-a11y
+npm install @storybook/addon-a11y --save-dev
 ```

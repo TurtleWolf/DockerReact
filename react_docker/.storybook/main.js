@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-knobs/register',
     '@storybook/addon-links',
     '@storybook/addon-storysource',
+    '@storybook/addon-a11y',
     // '@storybook/addon-docs',
     // '@storybook/theming',
     {
