@@ -158,6 +158,7 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
  npm i --save uuid
  npm i --save moment
  npm install --save styled-components
+ npm install --save polished
 #dev dependencies?
  npm install -D @storybook/addon-storyshots react-test-renderer
  npm install -D @storybook/addon-knobs
