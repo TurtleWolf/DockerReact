@@ -121,73 +121,46 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 ```
 
 ```bash
- cd disposable
-
- npx create-react-app disposable --use-npm
- npm i -p @storybook/addon-knobs
- npm i @storybook/addon-storyshots
- npm install -D @storybook/addon-info
- npm install -D @storybook/addon-storyshots react-test-renderer
- npm install @storybook/addon-info
- npm install @storybook/addon-knobs
- npm install prop-types
- npm install react-redux redux
- npm run storybook
- npx -p @storybook/addon-knobs
- npx -p @storybook/cli sb init --type react_scripts
- npx i -p @storybook/addon-knobs
-
 #################
-#################
-#################
-#################
-#################
-#################
-
-#################
- npx create-react-app disposable --use-npm
- cd disposable
+ npx create-react-app disbook --use-npm
+ cd disbook
  npx -p @storybook/cli sb init
 #  npx -p @storybook/cli sb init --type react_scripts && getstorybook
+
 #dependencies?
- npm i --save @fortawesome/fontawesome-svg-core
- npm i --save @fortawesome/free-solid-svg-icons
- npm i --save @fortawesome/react-fontawesome
- npm i --save moment
- npm i --save polished
- npm i --save prop-types
- npm i --save react-redux redux
- npm i --save styled-components
- npm i --save uuid
+#  npm i --save @fortawesome/fontawesome-svg-core
+#  npm i --save @fortawesome/free-solid-svg-icons
+#  npm i --save @fortawesome/react-fontawesome
+#  npm i --save moment
+#  npm i --save polished
+#  npm i --save prop-types
+#  npm i --save react-redux redux
+#  npm i --save styled-components
+#  npm i --save uuid
 
 #dev dependencies?
-npm install @storybook/react@6.0.0-beta.12 --save-dev
-# npm install @storybook/preset-create-react-app --save-dev
-# npm install @storybook/react --save-dev
-
-# yarn add @storybook/addon-queryparams --dev
+# npm install @storybook/react@6.0.0-beta.12 --save-dev
+# npm i --save-dev @storybook/addon-actions
+# npm i --save-dev @storybook/addon-info
+# npm i --save-dev @storybook/addon-links
+# npm i --save-dev @storybook/addon-google-analytics
+npm i --save-dev @storybook/addons
 npm i --save-dev @storybook/addon-a11y
-
-npm i --save-dev @storybook/addon-events event-emitter
+npm i --save-dev @storybook/addon-backgrounds
 npm i --save-dev @storybook/addon-cssresources
-
 npm i --save-dev @storybook/addon-design-assets
-npm i --save-dev @storybook/addon-google-analytics
+npm i --save-dev @storybook/addon-docs
+npm i --save-dev @storybook/addon-events event-emitter
 npm i --save-dev @storybook/addon-graphql
 npm i --save-dev @storybook/addon-jest
-npm i --save-dev @storybook/addon-links
-npm i --save-dev @storybook/addon-queryparams
-
-
-npm i --save-dev @storybook/addon-backgrounds
-npm i --save-dev @storybook/addon-docs
-npm i --save-dev @storybook/addon-info
 npm i --save-dev @storybook/addon-knobs
+npm i --save-dev @storybook/addon-queryparams
 npm i --save-dev @storybook/addon-storyshots
 npm i --save-dev @storybook/addon-storysource
 npm i --save-dev @storybook/addon-viewport
+npm i --save-dev @storybook/theming
+
 # npm install @storybook/storybook-deployer --save-dev
-npm install @storybook/theming --save-dev
 npm install chromatic --save-dev
 npm install prettier --save-dev
 npm install react-test-renderer --save-dev
@@ -197,3 +170,7 @@ npm install react-test-renderer --save-dev
 # yarn add -D @storybook/addon-docs
 # yarn add @storybook/addon-backgrounds --dev
 ```
+
+npm WARN react-docgen-typescript@1.16.4 requires a peer of typescript@>= 3.x but none is installed. You must install peer dependencies yourself.
+npm WARN react-docgen-typescript-loader@3.7.2 requires a peer of typescript@\* but none is installed. You must install peer dependencies yourself.
+npm WARN tsutils@3.17.1 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
