@@ -124,6 +124,7 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 #################
  npx create-react-app disbook --use-npm
  cd disbook
+ npm install --save typescript
  npx -p @storybook/cli sb init
 #  npx -p @storybook/cli sb init --type react_scripts && getstorybook
 
@@ -140,11 +141,10 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
 
 #dev dependencies?
 # npm install @storybook/react@6.0.0-beta.12 --save-dev
+# npm i --save-dev @storybook/addons
 # npm i --save-dev @storybook/addon-actions
 # npm i --save-dev @storybook/addon-info
 # npm i --save-dev @storybook/addon-links
-# npm i --save-dev @storybook/addon-google-analytics
-npm i --save-dev @storybook/addons
 npm i --save-dev @storybook/addon-a11y
 npm i --save-dev @storybook/addon-backgrounds
 npm i --save-dev @storybook/addon-cssresources
@@ -158,7 +158,8 @@ npm i --save-dev @storybook/addon-queryparams
 npm i --save-dev @storybook/addon-storyshots
 npm i --save-dev @storybook/addon-storysource
 npm i --save-dev @storybook/addon-viewport
-npm i --save-dev @storybook/theming
+# npm i --save-dev @storybook/addon-google-analytics
+# npm i --save-dev @storybook/theming
 
 # npm install @storybook/storybook-deployer --save-dev
 npm install chromatic --save-dev
@@ -171,6 +172,6 @@ npm install react-test-renderer --save-dev
 # yarn add @storybook/addon-backgrounds --dev
 ```
 
-npm WARN react-docgen-typescript@1.16.4 requires a peer of typescript@>= 3.x but none is installed. You must install peer dependencies yourself.
+m WARN react-docgen-typescript@1.16.4 requires a peer of nptypescript@>= 3.x but none is installed. You must install peer dependencies yourself.
 npm WARN react-docgen-typescript-loader@3.7.2 requires a peer of typescript@\* but none is installed. You must install peer dependencies yourself.
 npm WARN tsutils@3.17.1 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
