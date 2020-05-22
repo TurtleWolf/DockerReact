@@ -3,16 +3,6 @@ import { addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 
 import { GlobalStyle } from '../src/shared/global';
-
-addDecorator(withA11y);
-
-addDecorator(story => (
-    <>
-        <GlobalStyle />
-        {story()}
-    </>
-));
-
 import { addParameters } from '@storybook/react';
 
 addParameters({
@@ -29,3 +19,11 @@ addParameters({
         ],
     },
 });
+addDecorator(withA11y);
+
+addDecorator(story => (
+    <>
+        <GlobalStyle />
+        {story()}
+    </>
+));

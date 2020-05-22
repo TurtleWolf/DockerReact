@@ -165,13 +165,14 @@ npm install @storybook/react@6.0.0-beta.12 --save-dev
 # npm install @storybook/preset-create-react-app --save-dev
 # npm install @storybook/react --save-dev
 
-npm install @storybook/addon-a11y --save-dev
-npm install @storybook/addon-backgrounds --save-dev
-npm install @storybook/addon-docs --save-dev
-npm install @storybook/addon-info --save-dev
-npm install @storybook/addon-knobs --save-dev
-npm install @storybook/addon-storyshots --save-dev
-npm install @storybook/addon-storysource --save-dev
+npm i --save-dev @storybook/addon-a11y
+npm i --save-dev @storybook/addon-backgrounds
+npm i --save-dev @storybook/addon-docs
+npm i --save-dev @storybook/addon-info
+npm i --save-dev @storybook/addon-knobs
+npm i --save-dev @storybook/addon-storyshots
+npm i --save-dev @storybook/addon-storysource
+npm i --save-dev @storybook/addon-viewport
 # npm install @storybook/storybook-deployer --save-dev
 npm install @storybook/theming --save-dev
 npm install chromatic --save-dev
