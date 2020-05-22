@@ -153,28 +153,33 @@ docker run -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 3000:3000 --rm
  npm i --save @fortawesome/fontawesome-svg-core
  npm i --save @fortawesome/free-solid-svg-icons
  npm i --save @fortawesome/react-fontawesome
+ npm i --save moment
+ npm i --save polished
  npm i --save prop-types
  npm i --save react-redux redux
+ npm i --save styled-components
  npm i --save uuid
- npm i --save moment
- npm install --save styled-components
- npm install --save polished
+
 #dev dependencies?
- npm install -D @storybook/addon-storyshots react-test-renderer
- npm install -D @storybook/addon-knobs
-#  npm install -D @storybook/addon-info
-#  npm i @storybook/storybook-deployer --save-dev
- npm i -D @storybook/react
- npm install -D @storybook/preset-create-react-app
- npm install @storybook/theming --save-dev
-#  npm install @storybook/addon-storysource --dev
-#  yarn add -D @storybook/addon-docs
-# yarn add --dev @storybook/addon-docs
-npm install @storybook/addon-docs --save-dev
-npm install @storybook/addon-storysource --save-dev
-npm install prettier --save-dev
-# yarn add --dev chromatic
-npm install chromatic --save-dev
-# yarn add --dev @storybook/addon-a11y
+npm install @storybook/react@6.0.0-beta.12 --save-dev
+# npm install @storybook/preset-create-react-app --save-dev
+# npm install @storybook/react --save-dev
+
 npm install @storybook/addon-a11y --save-dev
+npm install @storybook/addon-backgrounds --save-dev
+npm install @storybook/addon-docs --save-dev
+npm install @storybook/addon-info --save-dev
+npm install @storybook/addon-knobs --save-dev
+npm install @storybook/addon-storyshots --save-dev
+npm install @storybook/addon-storysource --save-dev
+# npm install @storybook/storybook-deployer --save-dev
+npm install @storybook/theming --save-dev
+npm install chromatic --save-dev
+npm install prettier --save-dev
+npm install react-test-renderer --save-dev
+# yarn add --dev @storybook/addon-a11y
+# yarn add --dev @storybook/addon-docs
+# yarn add --dev chromatic
+# yarn add -D @storybook/addon-docs
+# yarn add @storybook/addon-backgrounds --dev
 ```

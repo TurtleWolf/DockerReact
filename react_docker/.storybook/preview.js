@@ -13,12 +13,19 @@ addDecorator(story => (
     </>
 ));
 
-// import { addParameters } from '@storybook/react';
+import { addParameters } from '@storybook/react';
 
-// addParameters({
-//     notes: 'global notes',
-//     options: {
-//         storySort: (a, b) =>
-//             a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
-//     },
-// });
+addParameters({
+    notes: 'global notes',
+    options: {
+        storySort: (a, b) =>
+            a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+    },
+    backgrounds: {
+        default: 'twitter',
+        values: [
+            { name: 'twitter', value: '#00aced' },
+            { name: 'facebook', value: '#3b5998' },
+        ],
+    },
+});
