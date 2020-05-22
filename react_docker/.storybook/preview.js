@@ -18,6 +18,10 @@ addParameters({
             { name: 'facebook', value: '#3b5998' },
         ],
     },
+    // viewport: {
+    //     viewports: newViewports, // newViewports would be an ViewportMap. (see below for examples)
+    //     defaultViewport: 'someDefault',
+    // },
 });
 addDecorator(withA11y);
 

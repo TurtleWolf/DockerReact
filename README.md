@@ -165,7 +165,20 @@ npm install @storybook/react@6.0.0-beta.12 --save-dev
 # npm install @storybook/preset-create-react-app --save-dev
 # npm install @storybook/react --save-dev
 
+# yarn add @storybook/addon-queryparams --dev
 npm i --save-dev @storybook/addon-a11y
+
+npm i --save-dev @storybook/addon-events event-emitter
+npm i --save-dev @storybook/addon-cssresources
+
+npm i --save-dev @storybook/addon-design-assets
+npm i --save-dev @storybook/addon-google-analytics
+npm i --save-dev @storybook/addon-graphql
+npm i --save-dev @storybook/addon-jest
+npm i --save-dev @storybook/addon-links
+npm i --save-dev @storybook/addon-queryparams
+
+
 npm i --save-dev @storybook/addon-backgrounds
 npm i --save-dev @storybook/addon-docs
 npm i --save-dev @storybook/addon-info
