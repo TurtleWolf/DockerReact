@@ -175,3 +175,31 @@ npm install react-test-renderer --save-dev
 m WARN react-docgen-typescript@1.16.4 requires a peer of nptypescript@>= 3.x but none is installed. You must install peer dependencies yourself.
 npm WARN react-docgen-typescript-loader@3.7.2 requires a peer of typescript@\* but none is installed. You must install peer dependencies yourself.
 npm WARN tsutils@3.17.1 requires a peer of typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta but none is installed. You must install peer dependencies yourself.
+
+```javascript
+module.exports = {
+  stories: ['../src/**/*.stories.js'],
+  addons: [
+    '@storybook/preset-create-react-app',
+    '@storybook/addon-actions',
+    '@storybook/addon-links',
+    // '@storybook/addon-a11y',
+    // '@storybook/addon-backgrounds',
+    // '@storybook/addon-cssresources',
+    // '@storybook/addon-design-assets',
+    // '@storybook/addon-docs',
+    // '@storybook/addon-events',
+    // '@storybook/addon-google-analytics',
+    // '@storybook/addon-graphql',
+    // '@storybook/addon-jest',
+    // '@storybook/addon-knobs/register',
+    // '@storybook/addon-queryparams',
+    // '@storybook/addon-storysource',
+    // '@storybook/addon-viewport',
+    '@storybook/theming',
+    '@storybook/addon-storyshots',
+  ],
+};
+```
+
+theoratically, I'd start with the inverted (but for visual clarity..)
